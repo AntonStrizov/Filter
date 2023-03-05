@@ -1,0 +1,49 @@
+.main{
+    width: 1000px;
+    height: 600px;
+    border: black 1px solid;
+    border-radius: 13px;
+    margin: 0 auto;
+    margin-top: 100px;
+    position: relative;
+}
+.filterDiv{
+    height: 600px;
+    width: 200px;
+    /* border: solid black 1px; */
+    background-color: rgb(253, 208, 216);
+    border-bottom-left-radius: 13px;
+    border-top-left-radius: 13px;
+    position: absolute;
+}
+p{
+    display: inline-block;
+}
+.filterCell{
+    line-height: 0px;
+}
+.productMenu{
+    /* border: 1px solid black; */
+    width: 800px;
+    height: 600px;
+    position: absolute;
+    left: 200px;
+    /* text-align: center; */
+    overflow: auto;
+}
+.product{
+    width: 200px;
+    height: 300px;
+    border: solid 1px black;
+    display: inline-block;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+img{
+    width: 160px;
+    height: 240px;
+    margin-top: 10px;
+}
