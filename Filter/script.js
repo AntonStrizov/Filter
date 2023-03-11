@@ -1,6 +1,15 @@
 let checkboxAll = document.querySelector(".checkAll");
 let checkbox = document.querySelectorAll(".check");
 let products = document.querySelectorAll(".product");
+let searchInput = document.querySelector(".searchinp");
+let productName = document.querySelectorAll(".productName");
+let productNameArr = [];
+for(let i = 0; i < productName.length;i++){
+    productNameArr.push(productName[i].textContent)
+}
+function search(){
+    
+}
 function check(clarification){
     if(clarification == 1){
         let checknum = 0;
