@@ -47,7 +47,7 @@ function check(clarification,impVal){
                 for(let u = 0; u < products.length; u++){
                     if(checkbox[y].id == products[u].id){
                         products[u].style.display = "inline-block";
-                        search(impVal)
+                        // search(impVal)
                     }
                 }
             }
@@ -59,7 +59,7 @@ function check(clarification,impVal){
     if(checkboxAll.checked != ""){
         for(let i = 0; i < products.length;i++){
             products[i].style.display = "inline-block";
-            search(impVal)
+            // search(impVal)
         }
         for(let y = 0; y < checkbox.length;y++){
             checkbox[y].checked = "true";
