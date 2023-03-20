@@ -57,3 +57,14 @@ img{
 .filterName{
     display: block;
 }
+.info{
+    width: 20px;
+    height: 20px;
+    border: black solid 1px;
+    border-radius: 100px;
+    display: inline-block;
+}
+.searchinp{
+    display: inline-block;
+    width: 123px;
+}
