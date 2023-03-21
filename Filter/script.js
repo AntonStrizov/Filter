@@ -1,121 +1,90 @@
-let checkboxAll = document.querySelector(".checkAll");
-let checkbox = document.querySelectorAll(".check");
-let products = document.querySelectorAll(".product");
-let searchInput = document.querySelector(".searchinp");
-let productName = document.querySelectorAll(".productName");
-let productNameAray = []; 
-let visibleelementNameAray = [];
-let visibleElementAray = [];
-searchInput.addEventListener("change", function(){
-    check( 1,searchInput.value);
-})
-function search(letters){
-    for(let r = 0; r < visibleelementNameAray.length; r++){
-                 if(productNameAray[r].indexOf(letters) === -1){
-                     products[r].style.display = "none";
-                }
+const searchbar = document.getElementById("search")
+const checkboxes = document.getElementsByName("filter")
+const productDivs = document.getElementsByClassName("product")
+const productNames = document.getElementsByClassName("productName")
+
+function filter(typeArr, type) {
+    if (type === "category") {
+        for (let j = 0; j<productDivs.length; j++) {
+            productDivs[j].classList.remove("filtered")
         }
-}
-function checkVisibleelements(){
-    visibleelementNameAray = [];
-    visibleElementAray = [];
-    for(let i = 0; i < productName.length; i++){
-        if(products[i].style.display == 'none'){
-            
-        }else{
-            visibleelementNameAray.push(productName[i].textContent);
-            visibleElementAray.push(products[i]);
-            console.log(visibleElementAray)
-        }
-    }
-    console.log(visibleelementNameAray);
-}
-function check(clarification,impVal){
-    for(let i = 0; i < productNameAray.length;i++){
-             productNameAray.pop();
-         }
-    if(clarification == 1){
-        let checknum = 0;
-        for(let y = 0; y < checkbox.length;y++){
-                if(checkbox[y].checked == ""){
-                    checkboxAll.checked = "";
-                    for(let u = 0; u < products.length; u++){
-                        if(checkbox[y].id == products[u].id){
-                            products[u].style.display = "none";
-                            search(impVal)
-                        }else{
-                            search(impVal)
-                            checkVisibleelements();
-                        for(let h = 0; h < visibleelementNameAray.length; h++){
-                            if(productNameAray[h] != productName[u].textContent){ 
-                                for(let f = 0; f < productNameAray.length; f++){
-                                productNameAray.push(productName[u].textContent)
-                                }
-                            }else if(productNameAray.length == 0){
-                                productNameAray.push(productName[u].textContent)
-                            } 
-                        }
-                            search(impVal)
-                        }
-                    }
-                }
-                
-        }
-        for(let y = 0; y < checkbox.length; y++){
-            if(checkbox[y].checked != ""){
-                checknum++;
-                for(let u = 0; u < products.length; u++){
-                    if(checkbox[y].id == products[u].id){
-                        products[u].style.display = "inline-block";
-                        console.log("3")
-                        search(impVal)
-                        checkVisibleelements();
-                        for(let h = 0; h < visibleelementNameAray.length; h++){
-                            if(productNameAray[h] != productName[u].textContent){ 
-                                for(let f = 0; f < productNameAray.length; f++){
-                                productNameAray.push(productName[u].textContent)
-                                }
-                            }else if(productNameAray.length == 0){
-                                productNameAray.push(productName[u].textContent)
-                            } 
-                        } //                                 dodelat!!!!
-                            
-                        search(impVal)
+        for (let i = 0; i<typeArr.length; i++) {
+            for (let j = 0; j<productDivs.length; j++) {
+                let child = productDivs[j].childNodes[3]
+                if (productDivs[j].classList.contains(typeArr[i]) && child.innerText.toLowerCase().includes(searchbar.value.toLowerCase().trim())) {
+                    productDivs[j].classList.remove("d-none")
+                    productDivs[j].classList.add("d-inline")
+                    productDivs[j].classList.add("filtered")
+                } else {
+                    if (!productDivs[j].classList.contains("filtered")) {
+                        productDivs[j].classList.remove("d-inline")
+                        productDivs[j].classList.add("d-none")
                     }
                 }
             }
-            if(checknum == checkbox.length){
-                checkboxAll.checked = "true";
-            }            
+        }
+    } else {
+        for (let i = 0; i<productNames.length; i++) {
+            let parent = productNames[i].parentNode
+            parent.classList.remove("filtered")
+        }
+        if (typeArr.length > 0) {
+            for (let i = 0; i < typeArr.length; i++) {
+                for (let j = 0; j < productNames.length; j++) {
+                    if (productNames[j].innerText === typeArr[i]) {
+                        let parent = productNames[j].parentNode
+                        parent.classList.remove("d-none")
+                        parent.classList.add("d-inline")
+                        parent.classList.add("filtered")
+                    } else {
+                        let parent = productNames[j].parentNode
+                        if (!parent.classList.contains("filtered")) {
+                            parent.classList.remove("d-inline")
+                            parent.classList.add("d-none")
+                        }
+                    }
+                }
+            }
+        } else {
+            for (let j = 0; j < productNames.length; j++) {
+                let parent = productNames[j].parentNode
+                parent.classList.add("d-none")
+                parent.classList.remove("d-inline")
+            }
         }
     }
-    if(checkboxAll.checked != ""){
-        for(let i = 0; i < products.length;i++){
-            products[i].style.display = "inline-block";
-            console.log("4")
-            search(impVal)
-            checkVisibleelements();
-            for(let h = 0; h < visibleelementNameAray.length; h++){
-                if(productNameAray[h] != productName[i].textContent){ 
-                    for(let f = 0; f < productNameAray.length; f++){
-                    productNameAray.push(productName[i].textContent)
-                    }
-                }else if(productNameAray.length == 0){
-                    productNameAray.push(productName[u].textContent)
-                } 
-            }
-            search(impVal)
-        }
-        for(let y = 0; y < checkbox.length;y++){
-            checkbox[y].checked = "true";
-        }
-     }
 }
-for(let i = 0; i < checkbox.length; i++){
-    checkbox[i].addEventListener("change", function(){
-        check(1,searchInput.value);
+
+function listenAdd() {
+    const all_check = document.getElementsByClassName("checkAll")[0]
+    checkboxes.forEach(function(checkbox) {
+        checkbox.addEventListener('change', function() {
+            let typeArr = []
+            for(let i = 0; i < checkboxes.length; i++) {
+                if (checkboxes[i].checked) {
+                    typeArr.push(checkboxes[i].value)
+                }
+            }
+            all_check.checked = typeArr.length === 3 && all_check.checked === false;
+            filter(typeArr, "category")
+        })
+    });
+}
+
+function listenSearch() {
+    searchbar.addEventListener('keyup', function () {
+        let cleaned = searchbar.value.toLowerCase().trim()
+        let nameArr = []
+        for (let i = 0; i<productNames.length; i++) {
+            let parent = productNames[i].parentNode
+            if (productNames[i].innerText.toLowerCase().includes(cleaned) || parent.classList.contains("filtered") && productNames[i].innerText.toLowerCase().includes(cleaned)) {
+               nameArr.push(productNames[i].innerText)
+            }
+        }
+        filter(nameArr, "names")
     })
 }
-checkboxAll.addEventListener("change", function(){
-    check("",searchInput.value);
-})
+window.addEventListener("load", () => {
+    listenSearch()
+    listenAdd()
+});

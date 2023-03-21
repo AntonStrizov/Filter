@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href="style.css" rel="stylesheet" type="text/css" />
     <title>Filter</title>
 </head>
@@ -11,25 +12,25 @@
     <div class="main">
         <div class="filterDiv">
                 <p class="filterName">Search</p>
-                
-                <input type="text" class="searchinp">
+
+                <label for="search">Search for product</label><input type="text" id="search" class="searchinp">
                 <div class="info" title="Название должно быть введено с учётом заглавных и строчных букв">i</div>
                 <br>
-                <p lass="filterName">Filter</p>
-                <div class="filerbox">
-                <div class="filterCell"> <input type="checkbox" class="checkAll" id="checkAll" checked="true"> <p>All</p> </div>
-                <div class="filterCell"> <input type="checkbox" class="check" id="anime" checked="true"> <p>Anime</p> </div>
-                <div class="filterCell"> <input type="checkbox" class="check" id="film" checked="true"> <p>Films</p> </div>
-                <div class="filterCell"> <input type="checkbox" class="check" id="game" checked="true"> <p>Games</p> </div>
+                <p class="filterName">Filter</p>
+                <div class="filterbox">
+                <div class="all filterCell"><label for="checkAll"></label><input type="checkbox" name="filter" value="all" class="checkAll" id="checkAll" checked="true"> <p>All</p> </div>
+                <div class="anime filterCell"><label for="anime_filter"></label><input type="checkbox" name="filter" value="anime" class="check" id="anime_filter" checked="true"> <p>Anime</p> </div>
+                <div class="film filterCell"><label for="film_filter"></label><input type="checkbox" name="filter" value="film" class="check" id="film_filter" checked="true"> <p>Films</p> </div>
+                <div class="game filterCell"><label for="game_filter"></label><input type="checkbox" name="filter" value="game" class="check" id="game_filter" checked="true"> <p>Games</p> </div>
             </div>
         </div>
-        <div class="productMenu">
-            <div class="product" id="game"> <img src="https://upload.wikimedia.org/wikipedia/en/7/7c/Doki_Doki_Literature_Club_Cover.jpg" alt=""> <p class="productName">Doki Doki Literature Club</p> </div>
-            <div class="product" id="anime"> <img src="https://m.media-amazon.com/images/M/MV5BN2NlM2Y5Y2MtYjU5Mi00ZjZiLWFjNjMtZDNiYzJlMjhkOWZiXkEyXkFqcGdeQXVyNjc2NjA5MTU@._V1_FMjpg_UX1000_.jpg" alt=""> <p class="productName">Re:zero</p> </div>
-            <div class="product" id="anime"> <img src="https://upload.wikimedia.org/wikipedia/ru/thumb/6/61/Spirited_away.jpg/230px-Spirited_away.jpg" alt=""> <p class="productName">spirited away</p> </div>
-            <div class="product" id="anime"> <img src="https://upload.wikimedia.org/wikipedia/en/9/94/NarutoCoverTankobon1.jpg" alt=""> <p class="productName">Naruto</p> </div>
-            <div class="product" id="film"> <img src="https://s7.vcdn.biz/static/f/1597756651/image.jpg/pt/r300x423x4" alt=""> <p class="productName">Hatiko</p> </div>
-            <div class="product" id="film"> <img src="https://upload.wikimedia.org/wikipedia/en/3/35/Saw4final.jpg" alt=""> <p class="productName">Saw 4</p> </div>
+        <div class="d-flex flex-row flex-wrap productMenu">
+            <div class="flex-column d-inline col-4 game product" id="game"> <img src="https://upload.wikimedia.org/wikipedia/en/7/7c/Doki_Doki_Literature_Club_Cover.jpg" alt=""> <p class="productName">Doki Doki Literature Club</p> </div>
+            <div class="flex-column d-inline col-4 anime product" id="anime1"> <img src="https://m.media-amazon.com/images/M/MV5BN2NlM2Y5Y2MtYjU5Mi00ZjZiLWFjNjMtZDNiYzJlMjhkOWZiXkEyXkFqcGdeQXVyNjc2NjA5MTU@._V1_FMjpg_UX1000_.jpg" alt=""> <p class="productName">Re:zero</p> </div>
+            <div class="flex-column d-inline col-4 anime product" id="anime2"> <img src="https://upload.wikimedia.org/wikipedia/ru/thumb/6/61/Spirited_away.jpg/230px-Spirited_away.jpg" alt=""> <p class="productName">spirited away</p> </div>
+            <div class="flex-column d-inline col-4 anime product" id="anime3"> <img src="https://upload.wikimedia.org/wikipedia/en/9/94/NarutoCoverTankobon1.jpg" alt=""> <p class="productName">Naruto</p> </div>
+            <div class="flex-column d-inline col-4 film product" id="film1"> <img src="https://s7.vcdn.biz/static/f/1597756651/image.jpg/pt/r300x423x4" alt=""> <p class="productName">Hatiko</p> </div>
+            <div class="flex-column d-inline col-4 film product" id="film2"> <img src="https://upload.wikimedia.org/wikipedia/en/3/35/Saw4final.jpg" alt=""> <p class="productName">Saw 4</p> </div>
         </div>
     </div>
     <script src="script.js"></script>
